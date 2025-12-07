@@ -1,11 +1,39 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import TimelineItem from "../components/TimelineItem.astro";
 ---
 
 <Layout>
-	<Welcome />
+    <div class="px-96 py-48 flex flex-col gap-y-5">
+        <div id="header">
+            <h1 class="text-5xl underline font-bold decoration-primary decoration-4">Hello World</h1>
+            <h2 class="text-3xl">lorem ipusm</h2>
+        </div>
+        <div>
+            <p>description 1</p>
+            <p>description 2</p>
+        </div>
+        <div>
+            <div class="bg-primary aspect-square h-16"/>
+            <div class="bg-secondary aspect-square h-16"/>
+            <div class="bg-accent aspect-square h-16"/>
+        </div>
+        <div id="projects">
+            <Card glow={true}>
+                <p>balls</p>
+            </Card>
+        </div>
+        <div>
+            <TimelineItem>
+                <p>test</p>
+            </TimelineItem>
+            <TimelineItem>
+                <p>test</p>
+            </TimelineItem>
+            <TimelineItem>
+                <p>test</p>
+            </TimelineItem>
+        </div>
+    </div>
 </Layout>

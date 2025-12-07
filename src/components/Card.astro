@@ -1,0 +1,10 @@
+---
+const { glow = false } = Astro.props;
+---
+
+<div class:list={[
+    "border-2 border-white rounded-2xl p-8",
+    glow && "shadow-lg shadow-secondary"
+    ]}>
+    <slot/>
+</div>
