@@ -1,16 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
 import TimelineItem from "../components/TimelineItem.astro";
+import Timeline from "../components/Timeline.astro";
+import Project from "../components/Project.astro";
 ---
 
 <Layout>
-    <div class="px-8 sm:px-32 md:px-48 lg:px-64 xl:px-80 2xl:px-96 py-48 flex flex-col gap-y-5">
-        <div id="header">
-            <h1 class="text-5xl underline font-bold decoration-primary decoration-4">Hello World</h1>
-            <h2 class="text-3xl">lorem ipusm</h2>
+    <div class="px-8 sm:px-32 md:px-48 lg:px-64 xl:px-80 2xl:px-96 py-8 sm:py-10 md:py-12 lg:py-14 xl:py-16 2xl:py-18 flex flex-col gap-y-5">
+        <div id="header" class="flex flex-col gap-y-1">
+            <h1 class="text-5xl underline font-extrabold decoration-primary decoration-4">Hello World!</h1>
+            <h2 class="text-3xl">I'm DiffuseHyperion.</h2>
         </div>
-        <div>
+        <div id="description">
             <p>description 1</p>
             <p>description 2</p>
         </div>
@@ -19,12 +20,15 @@ import TimelineItem from "../components/TimelineItem.astro";
             <div class="bg-secondary aspect-square h-16"/>
             <div class="bg-accent aspect-square h-16"/>
         </div>
-        <div id="projects">
-            <Card glow={true}>
+        <div id="projects" class="grid grid-cols-2 gap-x-8">
+            <Project title="testing" url="https://example.com">
                 <p>balls</p>
-            </Card>
+            </Project>
+            <Project title="testing" url="https://example.com">
+                <p>balls</p>
+            </Project>
         </div>
-        <div class="border-l-2 border-secondary">
+        <Timeline>
             <TimelineItem title="title">
                 <p>description</p>
             </TimelineItem>
@@ -34,6 +38,6 @@ import TimelineItem from "../components/TimelineItem.astro";
             <TimelineItem title="title">
                 <p>description</p>
             </TimelineItem>
-        </div>
+        </Timeline>
     </div>
 </Layout>
