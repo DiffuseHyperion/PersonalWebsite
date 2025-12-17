@@ -5,7 +5,7 @@ import TimelineItem from "../components/TimelineItem.astro";
 ---
 
 <Layout>
-    <div class="px-96 py-48 flex flex-col gap-y-5">
+    <div class="px-8 sm:px-32 md:px-48 lg:px-64 xl:px-80 2xl:px-96 py-48 flex flex-col gap-y-5">
         <div id="header">
             <h1 class="text-5xl underline font-bold decoration-primary decoration-4">Hello World</h1>
             <h2 class="text-3xl">lorem ipusm</h2>
@@ -24,15 +24,15 @@ import TimelineItem from "../components/TimelineItem.astro";
                 <p>balls</p>
             </Card>
         </div>
-        <div>
-            <TimelineItem>
-                <p>test</p>
+        <div class="border-l-2 border-secondary">
+            <TimelineItem title="title">
+                <p>description</p>
             </TimelineItem>
-            <TimelineItem>
-                <p>test</p>
+            <TimelineItem title="title">
+                <p>description</p>
             </TimelineItem>
-            <TimelineItem>
-                <p>test</p>
+            <TimelineItem title="title">
+                <p>description</p>
             </TimelineItem>
         </div>
     </div>
