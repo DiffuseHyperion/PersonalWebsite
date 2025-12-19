@@ -2,42 +2,58 @@
 import Layout from "../layouts/Layout.astro";
 import TimelineItem from "../components/TimelineItem.astro";
 import Timeline from "../components/Timeline.astro";
-import Project from "../components/Project.astro";
+import Card from "../components/Card.astro";
+import ExternalLink from "../assets/external-link.svg";
+import Github from "../assets/github.svg";
+import Modrinth from "../assets/modrinth.svg";
+import Seperator from "../components/Seperator.astro";
+import ExternalData from "../components/ExternalData.tsx"
 ---
 
 <Layout>
-    <div class="px-8 sm:px-32 md:px-48 lg:px-64 xl:px-80 2xl:px-96 py-8 sm:py-10 md:py-12 lg:py-14 xl:py-16 2xl:py-18 flex flex-col gap-y-5">
+    <div class="px-8 sm:px-32 md:px-48 lg:px-64 xl:px-80 2xl:px-96 py-8 sm:py-10 md:py-12 lg:py-14 xl:py-16 2xl:py-18 flex flex-col gap-y-4">
         <div id="header" class="flex flex-col gap-y-1">
             <h1 class="text-5xl underline font-extrabold decoration-primary decoration-4">Hello World!</h1>
             <h2 class="text-3xl">I'm DiffuseHyperion.</h2>
         </div>
         <div id="description">
-            <p>description 1</p>
-            <p>description 2</p>
+            <p>I'm a full-stack web developer formally studying cybersecurity.</p>
         </div>
-        <div>
-            <div class="bg-primary aspect-square h-16"/>
-            <div class="bg-secondary aspect-square h-16"/>
-            <div class="bg-accent aspect-square h-16"/>
+        <Seperator/>
+        <h2 class="text-3xl font-bold">Projects</h2>
+        <div id="projects" class="grid grid-cols-2 gap-x-8 gap-y-4">
+            <Card glow={true}>
+                <div class="flex flex-col">
+                    <div class="flex flex-row justify-between">
+                        <h3 class="text-2xl font-bold">dohack.me</h3>
+                        <div class="flex flex-row gap-x-2">
+                            <a href="https://dohack.me"><ExternalLink stroke="white" width={32} height={32} /></a>
+                            <a href="https://github.com/dohack-me/dohack.me"><Github fill="white" width={32} height={32} /></a>
+                        </div>
+                    </div>
+                    <p>dohack.me is a free and open-source CTF practice website.</p>
+                    <p>It hosts challenges from multiple past CTF events from different organizations for users to solve.</p>
+                </div>
+            </Card>
+            <Card glow={true}>
+                <div class="flex flex-col">
+                    <div class="flex flex-row justify-between">
+                        <h3 class="text-2xl font-bold">InertiaAntiCheat</h3>
+                        <div class="flex flex-row gap-x-2">
+                            <a href="https://modrinth.com/mod/inertiaanticheat"><Modrinth stroke="white" width={32} height={32} /></a>
+                            <a href="https://github.com/DiffuseHyperion/InertiaAntiCheat"><Github fill="white" width={32} height={32} /></a>
+                        </div>
+                    </div>
+                    <p>InertiaAntiCheat is a Minecraft anti-cheat for the Fabric mod-loader.</p>
+                    <p>
+                        It has
+                        <ExternalData client:visible link="https://api.modrinth.com/v2/project/inertiaanticheat" property="downloads"/>
+                        downloads and
+                        <ExternalData client:visible link="https://api.modrinth.com/v2/project/inertiaanticheat" property="followers"/>
+                        followers on Modrinth, a mod distribution platform.
+                    </p>
+                </div>
+            </Card>
         </div>
-        <div id="projects" class="grid grid-cols-2 gap-x-8">
-            <Project title="testing" url="https://example.com">
-                <p>balls</p>
-            </Project>
-            <Project title="testing" url="https://example.com">
-                <p>balls</p>
-            </Project>
-        </div>
-        <Timeline>
-            <TimelineItem title="title">
-                <p>description</p>
-            </TimelineItem>
-            <TimelineItem title="title">
-                <p>description</p>
-            </TimelineItem>
-            <TimelineItem title="title">
-                <p>description</p>
-            </TimelineItem>
-        </Timeline>
     </div>
 </Layout>
