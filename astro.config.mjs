@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import {defineConfig} from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
 
@@ -11,5 +11,7 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  integrations: [preact()]
+  integrations: [preact()],
+
+  site: 'https://diffusehyperion.com',
 });
