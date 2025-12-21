@@ -1,16 +1,13 @@
 ---
 import Card from "./Card.astro";
 import GithubLogo from "../assets/github.svg";
+import ExternalLink from "../assets/external-link.svg";
+import Github from "../assets/github.svg";
+import Link from "./Link.astro";
 
-const {title, glow = false, githubUrl} = Astro.props;
+const {glow = false} = Astro.props;
 ---
 
 <Card glow={glow}>
-    <div class="flex flex-col">
-        <div class="flex flex-row justify-between">
-            <h3 class="text-2xl font-bold">{title}</h3>
-            <a href={githubUrl}><GithubLogo fill="white" width={32} height={32} /></a>
-        </div>
-        <slot />
-    </div>
+    <slot />
 </Card>
