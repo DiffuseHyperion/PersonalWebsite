@@ -11,10 +11,14 @@ import Link from "../components/Link.astro";
 import Project from "../components/Project.astro";
 import ProjectBody from "../components/ProjectBody.astro";
 import ProjectHeader from "../components/ProjectHeader.astro";
+import Posts from "../components/Posts.astro";
+import {getCollection} from "astro:content";
+
+const posts = await getCollection("blog");
 ---
 
 <Layout>
-    <div class="px-8 sm:px-32 md:px-48 lg:px-64 xl:px-80 2xl:px-96 py-8 sm:py-10 md:py-12 lg:py-14 xl:py-16 2xl:py-18 flex flex-col gap-y-4">
+    <div class="flex flex-col gap-y-4">
         <div id="header" class="flex flex-col gap-y-1">
             <h1 class="text-5xl underline font-extrabold decoration-primary decoration-4">Hello World!</h1>
             <h2 class="text-3xl">I'm DiffuseHyperion.</h2>
@@ -66,10 +70,19 @@ import ProjectHeader from "../components/ProjectHeader.astro";
                 </ProjectHeader>
                 <ProjectBody>
                     <p>multidrive-index is a web-app to turn a OneDrive into a public file server.</p>
-
                 </ProjectBody>
             </Project>
         </div>
+        <Seperator/>
+        <div>
+            <h2 class="text-3xl font-bold">Blog</h2>
+            <p>test</p>
+        </div>
+        <div id="projects" class="grid grid-cols-2 gap-x-8 gap-y-4">
+
+            
+        </div>
+        <Posts/>
         <Seperator/>
         <h2 class="text-3xl font-bold">Contact</h2>
         <div class="flex flex-row gap-x-2">
