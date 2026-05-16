@@ -1,0 +1,8 @@
+---
+const {href} = Astro.props;
+---
+
+<a target="_blank" rel="noopener noreferrer" href={href} class="underline text-accent cursor-pointer">
+    <slot/>
+</a>
+

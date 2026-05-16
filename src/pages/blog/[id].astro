@@ -1,7 +1,9 @@
 ---
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-// 1. Generate a new path for every collection entry
+import Prose from "../../components/Prose.astro";
+import Separator from "../../components/Separator.astro";
+
 export async function getStaticPaths() {
     const posts = await getCollection("blog");
     return posts.map(post => ({
@@ -9,7 +11,7 @@ export async function getStaticPaths() {
         props: { post },
     }));
 }
-// 2. For your template, you can get the entry directly from the prop
+
 const { post } = Astro.props;
 const { Content } = await render(post);
 ---
@@ -19,4 +21,8 @@ const { Content } = await render(post);
         <h1 class="text-5xl underline font-extrabold decoration-primary decoration-4">{post.data.title}</h1>
         <h2 class="text-3xl">{post.data.description}</h2>
     </div>
+    <Separator/>
+    <Prose>
+        <Content/>
+    </Prose>
 </Layout>

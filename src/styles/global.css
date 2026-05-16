@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import "tailwindcss";
 
+@plugin "@tailwindcss/typography";
+
 @theme {
     --color-primary: #6677DD;
     --color-secondary: #9166DD;
@@ -8,8 +10,4 @@
 
     --font-display: "Roboto", sans-serif;
 
-}
-
-a {
-    @apply underline text-accent cursor-pointer;
 }

@@ -15,6 +15,6 @@ export default function ExternalData({link, property}: {link: string, property: 
     }, [])
 
     return (
-        <span title={"As of right now!"} className={"underline"}>{ data ? data : "Waiting..."}</span>
+        <span title={"As of right now!"} className={"underline"}>{data ? data : "..."}</span>
     )
 }

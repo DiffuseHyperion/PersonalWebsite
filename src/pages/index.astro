@@ -1,93 +1,124 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ExternalLink from "../assets/external-link.svg";
-import Github from "../assets/github.svg";
-import Modrinth from "../assets/modrinth.svg";
-import Mail from "../assets/mail.svg";
-import Discord from "../assets/discord.svg";
-import Seperator from "../components/Seperator.astro";
+
+import ExternalLinkIcon from "../assets/external-link.svg";
+import GithubIcon from "../assets/github.svg";
+import ModrinthIcon from "../assets/modrinth.svg";
+import MailIcon from "../assets/mail.svg";
+import DiscordIcon from "../assets/discord.svg";
+import CalendarIcon from "../assets/calendar.svg";
+
+import Separator from "../components/Separator.astro";
+import ExternalLink from "../components/ExternalLink.astro";
 import ExternalData from "../components/ExternalData.tsx"
-import Link from "../components/Link.astro";
-import Project from "../components/Project.astro";
-import ProjectBody from "../components/ProjectBody.astro";
-import ProjectHeader from "../components/ProjectHeader.astro";
-import Posts from "../components/Posts.astro";
+
+import Card from "../components/Card/Card.astro";
+import CardBody from "../components/Card/CardBody.astro";
+import CardHeader from "../components/Card/CardHeader.astro";
 import {getCollection} from "astro:content";
 
 const posts = await getCollection("blog");
 ---
 
 <Layout>
-    <div class="flex flex-col gap-y-4">
-        <div id="header" class="flex flex-col gap-y-1">
-            <h1 class="text-5xl underline font-extrabold decoration-primary decoration-4">Hello World!</h1>
-            <h2 class="text-3xl">I'm DiffuseHyperion.</h2>
-        </div>
-        <div id="description">
-            <p>I'm a full-stack web developer formally studying cybersecurity.</p>
-        </div>
-        <Seperator/>
-        <h2 class="text-3xl font-bold">Projects</h2>
-        <div id="projects" class="grid grid-cols-2 gap-x-8 gap-y-4">
-            <Project glow={true}>
-                <ProjectHeader title="dohack.me">
-                    <Link href="https://dohack.me"><ExternalLink stroke="white" width={32} height={32} /></Link>
-                    <Link href="https://github.com/dohack-me/dohack.me"><Github fill="white" width={32} height={32} /></Link>
-                </ProjectHeader>
-                <ProjectBody>
-                    <p>dohack.me is a free and open-source CTF practice website.</p>
-                    <p>It hosts challenges from multiple past CTF events from different organizations for users to solve.</p>
-                </ProjectBody>
-            </Project>
-            <Project glow={true}>
-                <ProjectHeader title="InertiaAntiCheat">
-                    <Link href="https://modrinth.com/mod/inertiaanticheat"><Modrinth stroke="white" width={32} height={32} /></Link>
-                    <Link href="https://github.com/DiffuseHyperion/InertiaAntiCheat"><Github fill="white" width={32} height={32} /></Link>
-                </ProjectHeader>
-                <ProjectBody>
-                    <p>InertiaAntiCheat is a Minecraft anti-cheat to prevent players from joining with unauthorized mods.</p>
-                    <p>
-                        It has
-                        <ExternalData client:visible link="https://api.modrinth.com/v2/project/inertiaanticheat" property="downloads"/>
-                        downloads and
-                        <ExternalData client:visible link="https://api.modrinth.com/v2/project/inertiaanticheat" property="followers"/>
-                        followers on Modrinth, a mod distribution platform.
-                    </p>
-                </ProjectBody>
-            </Project>
-            <Project>
-                <ProjectHeader title="dohack.me - orchestrator">
-                    <Link href="https://github.com/dohack-me/orchestrator"><Github fill="white" width={32} height={32} /></Link>
-                </ProjectHeader>
-                <ProjectBody>
-                    <p>orchestrator is dohack.me's backend service to automatically deploy backend servers for challenges.</p>
-                    <p>It can also automatically expose web servers to end-users via <Link href="https://traefik.io/traefik">Traefik</Link>.</p>
-                </ProjectBody>
-            </Project>
-            <Project>
-                <ProjectHeader title="multidrive-index">
-                    <Link href="https://github.com/DiffuseHyperion/multidrive-index"><Github fill="white" width={32} height={32} /></Link>
-                </ProjectHeader>
-                <ProjectBody>
-                    <p>multidrive-index is a web-app to turn a OneDrive into a public file server.</p>
-                </ProjectBody>
-            </Project>
-        </div>
-        <Seperator/>
-        <div>
-            <h2 class="text-3xl font-bold">Blog</h2>
-            <p>test</p>
-        </div>
-        <div id="projects" class="grid grid-cols-2 gap-x-8 gap-y-4">
-
-            
-        </div>
-        <Posts/>
-        <Seperator/>
-        <h2 class="text-3xl font-bold">Contact</h2>
-        <div class="flex flex-row gap-x-2">
-            <Link href="mailto:contact@diffusehyperion.com"><Mail stroke="white" width={32} height={32}/></Link>
-            <Link href="https://discord.com/users/301279262994857987"><Discord stroke="white" width={32} height={32}/></Link>
-        </div>
+    <div id="header" class="flex flex-col gap-y-1">
+        <h1 class="text-5xl underline font-extrabold decoration-primary decoration-4">Hello World!</h1>
+        <h2 class="text-3xl">I'm DiffuseHyperion.</h2>
+    </div>
+    <div id="description">
+        <p>I'm a full-stack web developer formally studying cybersecurity.</p>
+    </div>
+    <Separator/>
+    <h2 class="text-3xl font-bold">Projects</h2>
+    <div id="projects" class="grid grid-cols-2 gap-x-8 gap-y-4">
+        <Card glow={true}>
+            <CardHeader title="dohack.me">
+                <ExternalLink href="https://dohack.me">
+                    <ExternalLinkIcon stroke="white" width={32} height={32}/>
+                </ExternalLink>
+                <ExternalLink href="https://github.com/dohack-me/dohack.me">
+                    <GithubIcon fill="white" width={32} height={32}/>
+                </ExternalLink>
+            </CardHeader>
+            <CardBody>
+                <p>dohack.me is a free and open-source CTF practice website.</p>
+                <p>It hosts challenges from multiple past CTF events from different organizations for users to
+                    solve.</p>
+            </CardBody>
+        </Card>
+        <Card glow={true}>
+            <CardHeader title="InertiaAntiCheat">
+                <ExternalLink href="https://modrinth.com/mod/inertiaanticheat">
+                    <ModrinthIcon stroke="white" width={32} height={32}/>
+                </ExternalLink>
+                <ExternalLink href="https://github.com/DiffuseHyperion/InertiaAntiCheat">
+                    <GithubIcon fill="white" width={32} height={32}/>
+                </ExternalLink>
+            </CardHeader>
+            <CardBody>
+                <p>InertiaAntiCheat is a Minecraft anti-cheat to prevent players from joining with unauthorized
+                    mods.</p>
+                <p>
+                    It has
+                    <ExternalData client:visible link="https://api.modrinth.com/v2/project/inertiaanticheat"
+                                  property="downloads"/>
+                    downloads and
+                    <ExternalData client:visible link="https://api.modrinth.com/v2/project/inertiaanticheat"
+                                  property="followers"/>
+                    followers on Modrinth, a mod distribution platform.
+                </p>
+            </CardBody>
+        </Card>
+        <Card>
+            <CardHeader title="dohack.me - orchestrator">
+                <ExternalLink href="https://github.com/dohack-me/orchestrator">
+                    <GithubIcon fill="white" width={32} height={32}/>
+                </ExternalLink>
+            </CardHeader>
+            <CardBody>
+                <p>orchestrator is dohack.me's backend service to automatically deploy backend servers for
+                    challenges.</p>
+                <p>It can also automatically expose web servers to end-users via
+                    <ExternalLink href="https://traefik.io/traefik">Traefik</ExternalLink>
+                    .
+                </p>
+            </CardBody>
+        </Card>
+        <Card>
+            <CardHeader title="multidrive-index">
+                <ExternalLink href="https://github.com/DiffuseHyperion/multidrive-index">
+                    <GithubIcon fill="white" width={32} height={32}/>
+                </ExternalLink>
+            </CardHeader>
+            <CardBody>
+                <p>multidrive-index is a web-app to turn a OneDrive into a public file server.</p>
+            </CardBody>
+        </Card>
+    </div>
+    <Separator/>
+    <div>
+        <h2 class="text-3xl font-bold">Blog</h2>
+    </div>
+    <div id="posts" class="grid grid-cols-2 gap-x-8 gap-y-4">
+        {posts.map(post => (
+                <Card>
+                    <CardHeader title={post.data.title} href={`/blog/${post.id}`}>
+                        <CalendarIcon width={32} height={32}/>
+                    </CardHeader>
+                    <CardBody>
+                        <p>{post.data.description}</p>
+                    </CardBody>
+                </Card>
+        ))}
+    </div>
+    <Separator/>
+    <h2 class="text-3xl font-bold">Contact</h2>
+    <div class="flex flex-row gap-x-2">
+        <ExternalLink href="mailto:contact@diffusehyperion.com">
+            <MailIcon stroke="white" width={32} height={32}/>
+        </ExternalLink>
+        <ExternalLink href="https://discord.com/users/301279262994857987">
+            <DiscordIcon stroke="white" width={32} height={32}/>
+        </ExternalLink>
     </div>
 </Layout>
