@@ -26,7 +26,7 @@ const posts = await getCollection("blog");
         <h2 class="text-3xl">I'm DiffuseHyperion.</h2>
     </div>
     <div id="description">
-        <p>I'm a full-stack web developer formally studying cybersecurity.</p>
+        <p class="text-xl">I'm a full-stack web developer formally studying cybersecurity.</p>
     </div>
     <Separator/>
     <h2 class="text-3xl font-bold">Projects</h2>
@@ -59,13 +59,9 @@ const posts = await getCollection("blog");
                 <p>InertiaAntiCheat is a Minecraft anti-cheat to prevent players from joining with unauthorized
                     mods.</p>
                 <p>
-                    It has
-                    <ExternalData client:visible link="https://api.modrinth.com/v2/project/inertiaanticheat"
-                                  property="downloads"/>
-                    downloads and
-                    <ExternalData client:visible link="https://api.modrinth.com/v2/project/inertiaanticheat"
-                                  property="followers"/>
-                    followers on Modrinth, a mod distribution platform.
+                    It has <ExternalData client:visible link="https://api.modrinth.com/v2/project/inertiaanticheat"
+                                  property="downloads"/> downloads and <ExternalData client:visible link="https://api.modrinth.com/v2/project/inertiaanticheat"
+                                  property="followers"/> followers on Modrinth, a mod distribution platform.
                 </p>
             </CardBody>
         </Card>
@@ -78,9 +74,7 @@ const posts = await getCollection("blog");
             <CardBody>
                 <p>orchestrator is dohack.me's backend service to automatically deploy backend servers for
                     challenges.</p>
-                <p>It can also automatically expose web servers to end-users via
-                    <ExternalLink href="https://traefik.io/traefik">Traefik</ExternalLink>
-                    .
+                <p>It can also automatically expose web servers to end-users via <ExternalLink href="https://traefik.io/traefik">Traefik</ExternalLink>.
                 </p>
             </CardBody>
         </Card>

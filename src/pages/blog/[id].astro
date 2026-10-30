@@ -17,12 +17,16 @@ const { Content } = await render(post);
 ---
 
 <Layout>
-    <div id="header" class="flex flex-col gap-y-1">
-        <h1 class="text-5xl underline font-extrabold decoration-primary decoration-4">{post.data.title}</h1>
-        <h2 class="text-3xl">{post.data.description}</h2>
+    <div class="flex justify-center">
+        <div class="w-[65ch] flex flex-col">
+            <div id="header" class="flex flex-col gap-y-1">
+                <h1 class="text-5xl underline font-extrabold decoration-primary decoration-4">{post.data.title}</h1>
+                <h2 class="text-3xl">{post.data.description}</h2>
+            </div>
+            <Separator/>
+            <Prose>
+                <Content/>
+            </Prose>
+        </div>
     </div>
-    <Separator/>
-    <Prose>
-        <Content/>
-    </Prose>
 </Layout>
